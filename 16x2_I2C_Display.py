@@ -13,26 +13,19 @@ It prints the IP address of the Raspberry.
 import lcd
 from time import sleep
 from subprocess import *
-#################################################################################################
-##### RUN THE TERMINAL (CMD) ####################################################################
-#################################################################################################
-def runCMD(cmd):
-  com = Popen(cmd, shell=True, stdout=PIPE)
-  shellOutput = com.communicate()
-  return shellOutput[0]
-#################################################################################################
-##### MAIN ######################################################################################
-#################################################################################################
-if __name__ == "__main__":
-  cmdIP = "ip addr show eth0 | grep inet |awk '{print $2}' | cut -d/ -f1"
-  strIP = runCMD(cmdIP)
 
-  lcd.initialize()
-  lcd.printString("IP Address:", lcd.LINE_1)
-  lcd.printString(strIP.split('\n')[0], lcd.LINE_2)
-  sleep(15)
-  lcd.clear()
-  lcd.noBacklight()
-#################################################################################################
-##### END OF CODE ###############################################################################
-#################################################################################################
+def runCMD(cmd):
+    com = Popen(cmd, shell=True, stdout=PIPE)
+    shellOutput = com.communicate()
+    return shellOutput[0]
+
+if __name__ == "__main__":
+    cmdIP = "ip addr show eth0 | grep inet |awk '{print $2}' | cut -d/ -f1"
+    strIP = runCMD(cmdIP)
+
+    lcd.init()
+    lcd.printString("IP Address:", lcd.line1)
+    lcd.printString(strIP.split('\n')[0], lcd.line2)
+    sleep(15)
+    lcd.clear()
+    lcd.setBacklightOff()
