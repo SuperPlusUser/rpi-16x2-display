@@ -19,12 +19,12 @@ For a more detailed description visit my website:
  Raspberry Pi | Level Shifter | I2C Display
 --------------|---------------|-------------
  GND (Pin 6)  | GND           | GND
- 3V3 (Pin 1)  | LV            | -
- SDA (Pin 3)  | LV1           | -
- SCL (Pin 5)  | LV2           | -
+ 3V3 (Pin 1)  | LV            | /
+ SDA (Pin 3)  | LV1           | /
+ SCL (Pin 5)  | LV2           | /
  5V (Pin2)    | HV 			  | Vcc
- -            | HV1           | SDA
- -            | HV2           | SCL
+ /            | HV1           | SDA
+ /            | HV2           | SCL
 
 ## 2 License
 
